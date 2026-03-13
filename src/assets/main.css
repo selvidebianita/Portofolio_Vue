@@ -1,0 +1,1142 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   Beautiful Blue Gradient Theme
+   Professional Portfolio
+   ======================================== */
+:root {
+    /* Primary Gradient Colors */
+    --gradient-start: #0284c7;
+    --gradient-mid: #0ea5e9;
+    --gradient-end: #38bdf8;
+
+    /* Background Colors */
+    --bg-dark: #0c4a6e;
+    --bg-medium: #075985;
+    --bg-light: #0369a1;
+
+    /* Accent Colors */
+    --accent: #7dd3fc;
+    --accent-light: #bae6fd;
+    --accent-glow: rgba(125, 211, 252, 0.4);
+
+    /* Text Colors - High Contrast */
+    --text-white: #ffffff;
+    --text-primary: #f0f9ff;
+    --text-secondary: #e0f2fe;
+    --text-muted: #bae6fd;
+}
+
+/* Body with Solid Blue Background - No Lines */
+body {
+    background: #0284c7 !important;
+    color: var(--text-white) !important;
+    min-height: 100vh;
+}
+
+/* Override Bootstrap */
+[data-bs-theme="light"] {
+    --bs-body-bg: transparent !important;
+    --bs-body-color: #ffffff !important;
+    --bs-primary: #7dd3fc;
+    --bs-primary-rgb: 125, 211, 252;
+    --bs-secondary: #38bdf8;
+    --bs-secondary-rgb: 56, 189, 248;
+}
+
+/* ========================================
+   Text Gradient - Beautiful Glow
+   ======================================== */
+.text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px var(--accent-glow);
+}
+
+.bg-gradient-primary-to-secondary {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+}
+
+/* ========================================
+   Feature Icon
+   ======================================== */
+.feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5rem;
+    color: var(--bg-dark);
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+/* ========================================
+   Navbar - Glassmorphism Blue
+   ======================================== */
+.navbar {
+    background: rgba(12, 74, 110, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(125, 211, 252, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    padding: 1rem 0;
+}
+
+.navbar-brand span {
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.navbar .nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1.2rem;
+    margin: 0 0.25rem;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.navbar .nav-link:hover {
+    color: var(--accent) !important;
+}
+
+.navbar .nav-link:hover::after {
+    width: 70%;
+}
+
+.navbar-toggler {
+    color: var(--accent) !important;
+    border: none !important;
+}
+
+.bx-menu-alt-right {
+    color: var(--accent) !important;
+}
+
+/* ========================================
+   ALL Typography - Clear & Visible
+   ======================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-white) !important;
+    font-weight: 700;
+}
+
+p {
+    color: var(--text-secondary) !important;
+    line-height: 1.8;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.lead {
+    color: var(--text-secondary) !important;
+    font-size: 1.15rem;
+}
+
+.text-body {
+    color: var(--text-white) !important;
+}
+
+.text-secondary {
+    color: var(--accent) !important;
+}
+
+.text-primary {
+    color: var(--accent) !important;
+}
+
+.small {
+    color: var(--text-secondary) !important;
+}
+
+.fw-light {
+    color: var(--text-secondary) !important;
+}
+
+.fw-bolder {
+    color: var(--text-white) !important;
+}
+
+.fs-3,
+.fs-4,
+.fs-5,
+.fs-6 {
+    color: var(--text-white) !important;
+}
+
+.display-3,
+.display-4,
+.display-5 {
+    color: var(--text-white) !important;
+    letter-spacing: -0.02em;
+}
+
+.text-white {
+    color: var(--text-white) !important;
+}
+
+.text-uppercase {
+    color: var(--text-muted) !important;
+    letter-spacing: 0.15em;
+}
+
+/* ========================================
+   Buttons - Pink Accent (HRD Attractive)
+   ======================================== */
+.btn-primary {
+    background: var(--accent) !important;
+    border: none !important;
+    color: var(--bg-dark) !important;
+    padding: 0.85rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px var(--accent-glow);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+    background: var(--accent-light) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px var(--accent-glow);
+    color: var(--bg-dark) !important;
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--accent) !important;
+    color: var(--accent) !important;
+    background: transparent !important;
+    padding: 0.85rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+}
+
+.btn-outline-primary:hover {
+    background: var(--accent) !important;
+    color: var(--bg-dark) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+.btn-outline-dark {
+    border: 2px solid var(--text-secondary) !important;
+    color: var(--text-white) !important;
+    padding: 0.85rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    background: transparent !important;
+}
+
+.btn-outline-dark:hover {
+    background: var(--bg-medium) !important;
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+    transform: translateY(-3px);
+}
+
+.btn-outline-light {
+    border: 2px solid var(--text-white) !important;
+    color: var(--text-white) !important;
+    padding: 0.85rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    background: transparent !important;
+}
+
+.btn-outline-light:hover {
+    background: var(--text-white) !important;
+    color: var(--bg-dark) !important;
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   Footer - Navy with Pink Border
+   ======================================== */
+.footer-gradient {
+    background: var(--bg-medium) !important;
+    border-top: 1px solid rgba(125, 211, 252, 0.25);
+}
+
+.footer-gradient * {
+    color: var(--text-secondary) !important;
+}
+
+.footer-gradient a {
+    color: var(--text-secondary) !important;
+    transition: all 0.3s ease;
+}
+
+.footer-gradient a:hover {
+    color: var(--accent) !important;
+}
+
+/* ========================================
+   Links - Pink Accent
+   ======================================== */
+a {
+    color: var(--accent);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-light);
+}
+
+a.text-gradient:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+}
+
+a.text-decoration-none {
+    text-decoration: none !important;
+}
+
+a.text-body {
+    color: var(--text-white) !important;
+}
+
+a.text-body:hover {
+    color: var(--accent) !important;
+}
+
+/* Social Icons */
+.fs-2 a,
+.social-icon {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.fs-2 a:hover {
+    transform: translateY(-5px) scale(1.15);
+    filter: drop-shadow(0 5px 15px var(--accent-glow));
+}
+
+/* All Icons */
+.bx {
+    color: var(--accent) !important;
+}
+
+/* ========================================
+   Cards - Clean Blue Style (No Lines)
+   ======================================== */
+.card {
+    background: #0369a1 !important;
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.card * {
+    color: var(--text-white);
+}
+
+.card p {
+    color: var(--text-secondary) !important;
+}
+
+.card .text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* ========================================
+   SKILL CARDS - Navy + Pink Theme
+   ======================================== */
+.skill-card-hard {
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-medium) 100%) !important;
+    border: 2px solid var(--accent) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card-hard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+
+.skill-card-hard * {
+    color: var(--text-white) !important;
+}
+
+.skill-card-soft {
+    background: linear-gradient(135deg, var(--bg-medium) 0%, var(--bg-dark) 100%) !important;
+    border: 2px solid var(--accent-light) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card-soft::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-light), var(--accent));
+}
+
+.skill-card-soft * {
+    color: var(--text-white) !important;
+}
+
+/* Skill items styling */
+.skill-card-hard .d-flex.align-items-center.rounded-4,
+.skill-card-soft .d-flex.align-items-center.rounded-4 {
+    background: rgba(125, 211, 252, 0.1);
+    border: 1px solid rgba(125, 211, 252, 0.2);
+    transition: all 0.3s ease;
+}
+
+.skill-card-hard .d-flex.align-items-center.rounded-4:hover,
+.skill-card-soft .d-flex.align-items-center.rounded-4:hover {
+    background: rgba(125, 211, 252, 0.2);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   Profile Image Enhancement
+   ======================================== */
+.profile {
+    position: relative;
+}
+
+.profile::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 105%;
+    height: 105%;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: glow 3s ease-in-out infinite;
+}
+
+.profile-img {
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(125, 211, 252, 0.3);
+    transition: all 0.3s ease;
+}
+
+.profile-img:hover {
+    border-color: var(--accent);
+    box-shadow: 0 25px 70px var(--accent-glow);
+}
+
+/* ========================================
+   Sections - Better Layout for HRD
+   ======================================== */
+section,
+header {
+    padding: 1rem 0;
+    padding-top: 4rem;
+    /* Jarak dari navbar */
+}
+
+section:first-of-type {
+    padding-top: 5rem;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Section divider - REMOVED */
+section+section {
+    border: none;
+    padding-top: 1rem;
+}
+
+/* ========================================
+   Experience & Education Cards
+   ======================================== */
+section .card .card-body {
+    padding: 2rem !important;
+}
+
+@media (min-width: 768px) {
+    section .card .card-body {
+        padding: 2.5rem 3rem !important;
+    }
+}
+
+/* Timeline-like effect for experience - REMOVED */
+section .card {
+    position: relative;
+}
+
+section .card::before {
+    display: none;
+}
+
+/* List styling */
+ul {
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+}
+
+ul li {
+    color: var(--text-secondary) !important;
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+
+ul li::marker {
+    color: var(--accent);
+}
+
+/* ========================================
+   Call to Action Section
+   ======================================== */
+.bg-gradient-primary-to-secondary {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--gradient-start) 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-gradient-primary-to-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+}
+
+.bg-gradient-primary-to-secondary h2,
+.bg-gradient-primary-to-secondary .display-4 {
+    color: var(--bg-dark) !important;
+    text-shadow: none;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* ========================================
+   Scrollbar - Navy + Pink
+   ======================================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent), var(--gradient-start));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--accent-light), var(--accent));
+}
+
+/* ========================================
+   Selection Color
+   ======================================== */
+::selection {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+/* ========================================
+   Smooth Scrolling
+   ======================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========================================
+   Form Elements
+   ======================================== */
+input,
+textarea,
+select {
+    background: var(--bg-medium) !important;
+    border: 2px solid rgba(125, 211, 252, 0.2) !important;
+    color: var(--text-white) !important;
+    border-radius: 12px;
+    padding: 0.85rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 20px var(--accent-glow) !important;
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+/* ========================================
+   Hero Section Enhancement
+   ======================================== */
+header {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+}
+
+header .container {
+    padding-top: 5rem;
+}
+
+header .fs-3 {
+    color: var(--text-muted) !important;
+    font-size: 1.25rem !important;
+}
+
+header h1 {
+    color: var(--text-white) !important;
+    margin-bottom: 2rem !important;
+}
+
+header .d-grid {
+    margin-top: 2rem;
+}
+
+/* ========================================
+   About Section Enhancement
+   ======================================== */
+section .text-center.my-5 {
+    margin-bottom: 3rem !important;
+}
+
+section .text-center.my-5 p.lead {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+section .text-center.my-5 p.text-muted {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+/* ========================================
+   Contact Page Enhancement
+   ======================================== */
+.container h2.text-secondary {
+    margin-top: 2rem;
+}
+
+/* Contact links */
+.col-md-6 a.text-body {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.col-md-6 a.text-body:hover {
+    background: rgba(125, 211, 252, 0.1);
+    padding-left: 1rem;
+}
+
+.col-md-6 a.text-body .bx {
+    margin-right: 0.75rem;
+    font-size: 1.5rem !important;
+}
+
+/* ========================================
+   Resume Page Specific Styles
+   ======================================== */
+.container h2.text-primary,
+.container h2.text-secondary {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem !important;
+}
+
+.container h2.text-primary::after,
+.container h2.text-secondary::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+/* ========================================
+   Project Card Enhancement
+   ======================================== */
+.card.overflow-hidden {
+    border-radius: 20px !important;
+}
+
+.card.overflow-hidden .col-md-6:last-child {
+    min-height: 250px;
+}
+
+.card.overflow-hidden h2 {
+    margin-bottom: 1rem;
+}
+
+.card.overflow-hidden p {
+    margin-bottom: 1.5rem;
+}
+
+/* ========================================
+   Bootstrap Overrides
+   ======================================== */
+.mb-4,
+.mb-5,
+.mb-3,
+.mb-2 {
+    color: inherit;
+}
+
+.row,
+.col,
+.col-md-6,
+.col-xxl-5,
+.col-xxl-7,
+.col-xxl-8,
+.col-lg-11 {
+    color: inherit;
+}
+
+.d-flex,
+.justify-content-center,
+.align-items-center {
+    color: inherit;
+}
+
+.text-center,
+.text-xxl-start {
+    color: inherit;
+}
+
+.gap-4 a {
+    color: var(--accent) !important;
+}
+
+.gap-4 a:hover {
+    color: var(--accent-light) !important;
+}
+
+.mx-1 {
+    color: var(--text-muted) !important;
+}
+
+/* ========================================
+   Responsive Adjustments
+   ======================================== */
+@media (max-width: 991px) {
+    header {
+        min-height: auto;
+        padding: 6rem 0 3rem;
+    }
+
+    .display-3 {
+        font-size: 2.5rem !important;
+    }
+
+    .display-4 {
+        font-size: 2rem !important;
+    }
+
+    .display-5 {
+        font-size: 1.75rem !important;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .btn-primary,
+    .btn-outline-primary,
+    .btn-outline-dark,
+    .btn-outline-light {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    section,
+    header {
+        padding: 3rem 0;
+    }
+
+    .card.overflow-hidden .col-md-6:last-child {
+        min-height: 200px;
+    }
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.bg-navy {
+    background: var(--bg-dark) !important;
+}
+
+.bg-navy-light {
+    background: var(--bg-medium) !important;
+}
+
+.text-pink {
+    color: var(--accent) !important;
+}
+
+.border-pink {
+    border-color: var(--accent) !important;
+}
+
+.shadow-pink {
+    box-shadow: 0 10px 40px var(--accent-glow);
+}
+
+/* Highlight important info for HRD */
+.highlight-box {
+    background: rgba(125, 211, 252, 0.1);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.5rem;
+    border-radius: 0 10px 10px 0;
+    margin: 1rem 0;
+}
+
+/* ========================================
+   BEAUTIFUL ANIMATIONS
+   ======================================== */
+
+/* Keyframes - Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes - Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Keyframes - Slide In Left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keyframes - Slide In Right */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keyframes - Scale Up */
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Keyframes - Float */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Keyframes - Pulse Glow */
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(125, 211, 252, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(125, 211, 252, 0.6);
+    }
+}
+
+/* Keyframes - Shimmer Text */
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Apply Animations */
+.hero-section .hero-content {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.hero-section .profile-wrapper {
+    animation: slideInRight 0.8s ease-out;
+}
+
+.hero-section .bio-section {
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* Cards Animation */
+.card {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* Section Title Animation */
+.section-title {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Shimmer Text Effect */
+.text-gradient {
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+}
+
+/* Floating Profile Image */
+.profile-img {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Button Hover Glow */
+.btn-primary:hover {
+    animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+/* Skill Items Stagger Animation */
+.skill-item {
+    animation: scaleUp 0.4s ease-out both;
+}
+
+.row-cols-2 .col:nth-child(1) .skill-item {
+    animation-delay: 0.05s;
+}
+
+.row-cols-2 .col:nth-child(2) .skill-item {
+    animation-delay: 0.1s;
+}
+
+.row-cols-2 .col:nth-child(3) .skill-item {
+    animation-delay: 0.15s;
+}
+
+.row-cols-2 .col:nth-child(4) .skill-item {
+    animation-delay: 0.2s;
+}
+
+.row-cols-2 .col:nth-child(5) .skill-item {
+    animation-delay: 0.25s;
+}
+
+.row-cols-2 .col:nth-child(6) .skill-item {
+    animation-delay: 0.3s;
+}
+
+.row-cols-2 .col:nth-child(7) .skill-item {
+    animation-delay: 0.35s;
+}
+
+.row-cols-2 .col:nth-child(8) .skill-item {
+    animation-delay: 0.4s;
+}
+
+/* Social Links Animation */
+.social-link {
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+.social-link:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.social-link:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.social-link:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Navbar Brand Hover */
+.navbar-brand:hover span {
+    animation: shimmer 1s ease-in-out;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
