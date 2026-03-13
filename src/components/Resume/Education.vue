@@ -49,8 +49,7 @@ export default {
           </div>
           <div class="col-lg-8">
             <ul class="education-list mb-0">
-              <li v-for="(desc, descIndex) of education.description" :key="descIndex">
-                {{desc}}
+              <li v-for="(desc, descIndex) of education.description" :key="descIndex" v-html="desc">
               </li>
             </ul>
           </div>
