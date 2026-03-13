@@ -9,8 +9,8 @@ export default {
         degree: "Bachelor of Informatics",
         gpa: "GPA: 3.92/4.00",
         description: [
-          "Specialized in Frontend Web Development, focusing on creating responsive and interactive user interfaces.",
-          "Gained extensive hands-on programming experience with modern web technologies such as HTML, CSS, JavaScript, and Vue.js.",
+          "Specialized in Frontend Web Development and Data Analysis, focusing on building user-centric interfaces.",
+          "Gained extensive hands-on experience in software engineering, data analysis, and network administration.",
           "Actively contributed as a Lab Assistant for software engineering and programming practical courses.",
         ]
       },
