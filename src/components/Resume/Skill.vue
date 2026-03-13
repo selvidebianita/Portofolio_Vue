@@ -19,6 +19,7 @@
           <div class="skill-category mb-4">
             <h5 class="skill-category-title">Programming & Data Analysis</h5>
             <div class="row row-cols-2 row-cols-md-4 g-3">
+              <div class="col"><div class="skill-item">PHP</div></div>
               <div class="col"><div class="skill-item">Python</div></div>
               <div class="col"><div class="skill-item">JavaScript</div></div>
               <div class="col"><div class="skill-item">SQL/MySQL</div></div>
