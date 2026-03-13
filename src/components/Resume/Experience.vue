@@ -9,9 +9,10 @@ export default {
           company: "PT Netindo Solution Group",
           location: "Era Solusi Data, Yogyakarta",
           description: [
-            "Architecting and developing modern, responsive web architectures focusing on high-performance user interfaces.",
-            "Collaborating closely with cross-functional teams to translate UI/UX designs into scalable and interactive web applications.",
-            "Spearheading digitalization initiatives for government projects, including the Ministry of Manpower (Kemnaker RI), ensuring robust front-end delivery.",
+            "Designing and developing modern, responsive web applications with a strong focus on performance, usability, and user-friendly interfaces.",
+            "Implementing UI/UX designs into functional and responsive web interfaces while ensuring consistency and an optimal user experience.",
+            "Developing both front-end and back-end features, including integrating and connecting APIs to build dynamic and data-driven web applications.",
+            "Collaborating with team members using GitLab for version control, managing branches, handling merges, and maintaining efficient teamwork during the development process.",
           ]
         },
         {
