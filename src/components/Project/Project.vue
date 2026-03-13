@@ -1,143 +1,127 @@
 <script setup>
+import { ref } from 'vue';
 
+const projects = ref([
+  {
+    title: 'Esoda Company Profile',
+    isFeatured: true,
+    badge: 'Latest Project',
+    description: 'Company profile website for PT Era Solusi Data (Esoda). As the <strong>sole Frontend Developer</strong>, I implemented the complete UI design, integrated REST APIs, and built a full-featured admin dashboard using React.js and Next.js without any design reference.',
+    techStack: ['Next.js', 'React.js', 'Tailwind CSS', 'REST API'],
+    highlights: [
+      'Complete UI implementation from design',
+      'Full API integration & Admin dashboard',
+      'User, role & content management'
+    ],
+    link: 'https://esoda.id',
+    images: [
+      { src: '/images/project/esoda.png', label: 'Website' },
+      { src: '/images/project/admin.png', label: 'Admin Dashboard' },
+      { src: '/images/project/esoda-home.png', label: 'Home Page' },
+      { src: '/images/project/esoda-dashboard.png', label: 'Dashboard Stats' }
+    ]
+  },
+  {
+    title: 'WasteProction',
+    isFeatured: false,
+    description: 'Educational website about waste management and environmental protection. Built as part of the MSIB Infinite Learning program using HTML and CSS.',
+    techStack: ['HTML5', 'CSS3'],
+    link: 'https://wasteproction.netlify.app/',
+    images: [
+      { src: '/images/project/WASTE.png', label: 'Landing Page' },
+      { src: '/images/project/wps.jpg', label: 'Content Interface' }
+    ]
+  },
+  {
+    title: 'DestinAsyik',
+    isFeatured: false,
+    description: 'Travel destination discovery website built as the final project for MSIB Infinite Learning program. Developed using React.js and Tailwind CSS with modern UI/UX design.',
+    techStack: ['React.js', 'Tailwind CSS'],
+    images: [
+      { src: '/images/project/dESTIN.png', label: 'Main Display' },
+      { src: '/images/project/ds.jpg', label: 'Destinations View' }
+    ]
+  },
+  {
+    title: 'School Website',
+    isFeatured: false,
+    description: 'Full-stack school website built as the final project for web programming course at Amikom Yogyakarta University. Includes student information, news, and gallery features.',
+    techStack: ['HTML', 'PHP', 'CSS', 'MySQL'],
+    images: [
+      { src: '/images/project/sk.jpg', label: 'School Portal' },
+      { src: '/images/project/dc.png', label: 'Database Design' }
+    ]
+  },
+  {
+    title: 'Auto Rent UI',
+    isFeatured: false,
+    description: 'Mobile application UI/UX design for car rental service. Created as the final assignment for Human-Computer Interaction (IMK) course using Figma.',
+    techStack: ['Figma', 'UI/UX Design'],
+    images: [
+      { src: '/images/project/au.jpg', label: 'Mobile Interface' }
+    ]
+  }
+]);
 </script>
 
 <template>
   <div class="row gx-5 justify-content-center">
     <div class="col-lg-11 col-xl-9 col-xxl-8">
       
-      <!-- Project Card - Esoda Company Profile (Featured Project) -->
-      <div class="card overflow-hidden shadow border-0 mb-5 featured-project">
+      <div v-for="(project, index) in projects" :key="index" :class="['card overflow-hidden shadow border-0 mb-5', project.isFeatured ? 'featured-project' : '']">
         <div class="card-body p-0">
           <div class="row g-0">
             <!-- Left: Content -->
-            <div class="col-lg-6 p-4 p-md-5 d-flex flex-column justify-content-center">
-              <span class="badge-new">Latest Project</span>
-              <h2 class="fw-bolder text-gradient mt-2 mb-3">Esoda Company Profile</h2>
-              <p class="project-desc">
-                Company profile website for PT Era Solusi Data (Esoda). As the <strong>sole Frontend Developer</strong>, 
-                I implemented the complete UI design, integrated REST APIs, and built a full-featured admin dashboard 
-                using React.js and Next.js without any design reference.
-              </p>
+            <div :class="[project.isFeatured ? 'col-lg-6 p-4 p-md-5 d-flex flex-column justify-content-center' : 'col-md-6 p-5 d-flex flex-column justify-content-center']">
+              <span v-if="project.badge" class="badge-new w-auto align-self-start">{{ project.badge }}</span>
+              <h2 :class="['fw-bolder text-gradient', project.badge ? 'mt-2 mb-3' : 'mb-3']">{{ project.title }}</h2>
+              <p class="project-desc" v-html="project.description"></p>
+              
               <div class="tech-stack mb-3">
-                <span class="tech-badge">Next.js</span>
-                <span class="tech-badge">React.js</span>
-                <span class="tech-badge">Tailwind CSS</span>
-                <span class="tech-badge">REST API</span>
+                <span v-for="tech in project.techStack" :key="tech" class="tech-badge">{{ tech }}</span>
               </div>
-              <div class="project-highlights mb-4">
-                <div class="highlight-item">✓ Complete UI implementation from design</div>
-                <div class="highlight-item">✓ Full API integration & Admin dashboard</div>
-                <div class="highlight-item">✓ User, role & content management</div>
+              
+              <div v-if="project.highlights" class="project-highlights mb-4">
+                <div v-for="highlight in project.highlights" :key="highlight" class="highlight-item">✓ {{ highlight }}</div>
               </div>
-              <div>
-                <a href="https://esoda.id" class="btn btn-primary" target="_blank">
-                  <i class='bx bx-link-external me-2'></i>Visit Website
+              
+              <div v-if="project.link">
+                <a :href="project.link" :class="[project.isFeatured ? 'btn btn-primary' : 'project-link']" target="_blank">
+                  <i class='bx bx-link-external me-2'></i>{{ project.isFeatured ? 'Visit Website' : project.link.replace('https://', '').replace('/', '') }}
                 </a>
               </div>
             </div>
-            <!-- Right: Images (stacked) -->
-            <div class="col-lg-6">
-              <div class="project-images-stack">
-                <div class="project-image-item">
-                  <img src="/images/project/esoda.png" alt="Esoda Website" class="img-fluid" />
-                  <span class="image-label">Website</span>
+
+            <!-- Right: Image Slider -->
+            <div :class="[project.isFeatured ? 'col-lg-6' : 'col-md-6']">
+              <div :id="'carouselProject' + index" class="carousel slide h-100" data-bs-ride="carousel">
+                <div class="carousel-indicators" v-if="project.images.length > 1">
+                  <button v-for="(img, imgIndex) in project.images" :key="'ind-'+imgIndex" type="button" :data-bs-target="'#carouselProject' + index" :data-bs-slide-to="imgIndex" :class="{ active: imgIndex === 0 }" aria-current="true" :aria-label="'Slide ' + (imgIndex + 1)"></button>
                 </div>
-                <div class="project-image-item">
-                  <img src="/images/project/admin.png" alt="Esoda Admin Dashboard" class="img-fluid" />
-                  <span class="image-label">Admin Dashboard</span>
+                
+                <div class="carousel-inner h-100">
+                  <div v-for="(image, imgIndex) in project.images" :key="'img-'+imgIndex" :class="['carousel-item h-100', { active: imgIndex === 0 }]">
+                    <div class="project-image-view h-100 w-100 position-relative">
+                      <img :src="image.src" :alt="image.label" class="img-fluid w-100 h-100 object-fit-cover" />
+                      <span v-if="project.isFeatured" class="image-label">{{ image.label }}</span>
+                      
+                      <!-- Overlay for non-featured projects to maintain styling -->
+                      <div v-if="!project.isFeatured" class="image-overlay"></div>
+                    </div>
+                  </div>
                 </div>
+                
+                <button v-if="project.images.length > 1" class="carousel-control-prev" type="button" :data-bs-target="'#carouselProject' + index" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon shadow-sm rounded-circle p-3 bg-dark bg-opacity-50" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button v-if="project.images.length > 1" class="carousel-control-next" type="button" :data-bs-target="'#carouselProject' + index" data-bs-slide="next">
+                  <span class="carousel-control-next-icon shadow-sm rounded-circle p-3 bg-dark bg-opacity-50" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project Card 1 - WasteProction -->
-      <div class="card overflow-hidden shadow border-0 mb-5">
-        <div class="card-body p-0">
-          <div class="row">
-            <div class="col-md-6 p-5">
-              <h2 class="fw-bolder text-gradient">WasteProction</h2>
-              <p class="project-desc">
-                Educational website about waste management and environmental protection. 
-                Built as part of the MSIB Infinite Learning program using HTML and CSS.
-              </p>
-              <div class="tech-stack mb-3">
-                <span class="tech-badge">HTML5</span>
-                <span class="tech-badge">CSS3</span>
-              </div>
-              <a href="https://wasteproction.netlify.app/" class="project-link" target="_blank">
-                <i class='bx bx-link-external me-1'></i>wasteproction.netlify.app
-              </a>
-            </div>
-            <div class="col-md-6 project-image" style="background-image: url('/images/project/WASTE.png'); background-size: contain; background-repeat: no-repeat; background-position: center center;">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project Card 2 - DestinAsyik -->
-      <div class="card overflow-hidden shadow border-0 mb-5">
-        <div class="card-body p-0">
-          <div class="row">
-            <div class="col-md-6 p-5">
-              <h2 class="fw-bolder text-gradient">DestinAsyik</h2>
-              <p class="project-desc">
-                Travel destination discovery website built as the final project for MSIB Infinite Learning program. 
-                Developed using React.js and Tailwind CSS with modern UI/UX design.
-              </p>
-              <div class="tech-stack mb-3">
-                <span class="tech-badge">React.js</span>
-                <span class="tech-badge">Tailwind CSS</span>
-              </div>
-            </div>
-            <div class="col-md-6 project-image" style="background-image: url('/images/project/dESTIN.png'); background-size: contain; background-repeat: no-repeat; background-position: center center;">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project Card 3 - School Website -->
-      <div class="card overflow-hidden shadow border-0 mb-5">
-        <div class="card-body p-0">
-          <div class="row">
-            <div class="col-md-6 p-5">
-              <h2 class="fw-bolder text-gradient">School Website</h2>
-              <p class="project-desc">
-                Full-stack school website built as the final project for web programming course at Amikom Yogyakarta University. 
-                Includes student information, news, and gallery features.
-              </p>
-              <div class="tech-stack mb-3">
-                <span class="tech-badge">HTML</span>
-                <span class="tech-badge">PHP</span>
-                <span class="tech-badge">CSS</span>
-                <span class="tech-badge">MySQL</span>
-              </div>
-            </div>
-            <div class="col-md-6 project-image" style="background-image: url('/images/project/sk.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center center;">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project Card 4 - Auto Rent UI -->
-      <div class="card overflow-hidden shadow border-0 mb-5">
-        <div class="card-body p-0">
-          <div class="row">
-            <div class="col-md-6 p-5">
-              <h2 class="fw-bolder text-gradient">Auto Rent UI</h2>
-              <p class="project-desc">
-                Mobile application UI/UX design for car rental service. 
-                Created as the final assignment for Human-Computer Interaction (IMK) course using Figma.
-              </p>
-              <div class="tech-stack mb-3">
-                <span class="tech-badge">Figma</span>
-                <span class="tech-badge">UI/UX Design</span>
-              </div>
-            </div>
-            <div class="col-md-6 project-image" style="background-image: url('/images/project/au.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center center;">
-            </div>
+            
           </div>
         </div>
       </div>
@@ -161,6 +145,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  display: inline-block;
 }
 
 .project-desc {
@@ -169,7 +154,7 @@
   margin-bottom: 1rem;
 }
 
-.project-desc strong {
+.project-desc :deep(strong) {
   color: #7dd3fc !important;
 }
 
@@ -204,6 +189,8 @@
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .project-link:hover {
@@ -214,79 +201,36 @@
   color: #7dd3fc !important;
 }
 
-.project-image {
+.project-image-view {
   min-height: 300px;
+  background-color: #0c1524; /* Fallback background */
 }
 
-/* Stacked images layout */
-.project-images-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  height: 100%;
-}
-
-.project-image-item {
-  position: relative;
-  flex: 1;
-  overflow: hidden;
-}
-
-.project-image-item img {
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.project-image-item:hover img {
-  transform: scale(1.05);
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 100%);
+  pointer-events: none;
 }
 
 .image-label {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 15px;
+  left: 15px;
   background: rgba(12, 74, 110, 0.85);
   color: #7dd3fc;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
-
-.project-image-side {
-  height: 100%;
-  overflow: hidden;
-}
-
-.project-image-side img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.project-image-side:hover img {
-  transform: scale(1.05);
-}
-
-.project-image-full {
-  border: none;
-  overflow: hidden;
-}
-
-.project-image-full img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-.project-image-full:hover img {
-  transform: scale(1.02);
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(125, 211, 252, 0.2);
 }
 
 .btn-primary {
@@ -298,27 +242,57 @@
   color: #0c4a6e !important;
 }
 
+/* Customizing Bootstrap Carousel */
+.carousel-indicators {
+  margin-bottom: 10px;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  background-color: #38bdf8;
+  box-shadow: 0 0 5px rgba(56, 189, 248, 0.8);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+  opacity: 0.8;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
 @media (max-width: 991px) {
-  .project-image-side {
+  .project-image-view {
     min-height: 250px;
-  }
-  
-  .project-images-stack {
-    flex-direction: row;
-  }
-  
-  .project-image-item {
-    min-height: 200px;
   }
 }
 
 @media (max-width: 767px) {
-  .project-image {
-    min-height: 200px;
-  }
-  
-  .project-images-stack {
-    flex-direction: column;
+  .project-image-view {
+    min-height: 220px;
   }
 }
 </style>
