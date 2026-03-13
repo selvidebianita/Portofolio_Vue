@@ -47,6 +47,10 @@
               <div class="col"><div class="skill-item">CSS3</div></div>
               <div class="col"><div class="skill-item">Node.js</div></div>
               <div class="col"><div class="skill-item">Bootstrap</div></div>
+              <div class="col"><div class="skill-item">RESTful APIs</div></div>
+              <div class="col"><div class="skill-item">Git/GitLab</div></div>
+              <div class="col"><div class="skill-item">Postman</div></div>
+              <div class="col"><div class="skill-item">Vite</div></div>
             </div>
           </div>
 
