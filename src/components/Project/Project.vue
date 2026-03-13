@@ -70,39 +70,19 @@ const projects = ref([
       
       <div v-for="(project, index) in projects" :key="index" :class="['card overflow-hidden shadow border-0 mb-5', project.isFeatured ? 'featured-project' : '']">
         <div class="card-body p-0">
-          <div class="row g-0">
-            <!-- Left: Content -->
-            <div :class="[project.isFeatured ? 'col-lg-6 p-4 p-md-5 d-flex flex-column justify-content-center' : 'col-md-6 p-5 d-flex flex-column justify-content-center']">
-              <span v-if="project.badge" class="badge-new w-auto align-self-start">{{ project.badge }}</span>
-              <h2 :class="['fw-bolder text-gradient', project.badge ? 'mt-2 mb-3' : 'mb-3']">{{ project.title }}</h2>
-              <p class="project-desc" v-html="project.description"></p>
-              
-              <div class="tech-stack mb-3">
-                <span v-for="tech in project.techStack" :key="tech" class="tech-badge">{{ tech }}</span>
-              </div>
-              
-              <div v-if="project.highlights" class="project-highlights mb-4">
-                <div v-for="highlight in project.highlights" :key="highlight" class="highlight-item">✓ {{ highlight }}</div>
-              </div>
-              
-              <div v-if="project.link">
-                <a :href="project.link" :class="[project.isFeatured ? 'btn btn-primary' : 'project-link']" target="_blank">
-                  <i class='bx bx-link-external me-2'></i>{{ project.isFeatured ? 'Visit Website' : project.link.replace('https://', '').replace('/', '') }}
-                </a>
-              </div>
-            </div>
+          <div class="d-flex flex-column">
 
-            <!-- Right: Image Slider -->
-            <div :class="[project.isFeatured ? 'col-lg-6' : 'col-md-6']">
-              <div :id="'carouselProject' + index" class="carousel slide h-100" data-bs-ride="carousel">
+            <!-- Top: Image Slider -->
+            <div class="w-100 border-bottom border-secondary border-opacity-25">
+              <div :id="'carouselProject' + index" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators" v-if="project.images.length > 1">
                   <button v-for="(img, imgIndex) in project.images" :key="'ind-'+imgIndex" type="button" :data-bs-target="'#carouselProject' + index" :data-bs-slide-to="imgIndex" :class="{ active: imgIndex === 0 }" aria-current="true" :aria-label="'Slide ' + (imgIndex + 1)"></button>
                 </div>
                 
-                <div class="carousel-inner h-100">
-                  <div v-for="(image, imgIndex) in project.images" :key="'img-'+imgIndex" :class="['carousel-item h-100', { active: imgIndex === 0 }]">
-                    <div class="project-image-view h-100 w-100 position-relative">
-                      <img :src="image.src" :alt="image.label" class="img-fluid w-100 h-100 object-fit-cover" />
+                <div class="carousel-inner">
+                  <div v-for="(image, imgIndex) in project.images" :key="'img-'+imgIndex" :class="['carousel-item', { active: imgIndex === 0 }]">
+                    <div class="project-image-view w-100 position-relative">
+                      <img :src="image.src" :alt="image.label" class="img-fluid w-100 object-fit-cover" style="max-height: 400px; min-height: 250px;" />
                       <span v-if="project.isFeatured" class="image-label">{{ image.label }}</span>
                       
                       <!-- Overlay for non-featured projects to maintain styling -->
@@ -119,6 +99,27 @@ const projects = ref([
                   <span class="carousel-control-next-icon shadow-sm rounded-circle p-3 bg-dark bg-opacity-50" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
+              </div>
+            </div>
+
+            <!-- Bottom: Content -->
+            <div class="p-4 p-md-5 d-flex flex-column justify-content-center">
+              <span v-if="project.badge" class="badge-new w-auto align-self-start mb-3">{{ project.badge }}</span>
+              <h2 class="fw-bolder text-gradient mb-3">{{ project.title }}</h2>
+              <p class="project-desc" v-html="project.description"></p>
+              
+              <div class="tech-stack mb-3">
+                <span v-for="tech in project.techStack" :key="tech" class="tech-badge">{{ tech }}</span>
+              </div>
+              
+              <div v-if="project.highlights" class="project-highlights mb-4">
+                <div v-for="highlight in project.highlights" :key="highlight" class="highlight-item">✓ {{ highlight }}</div>
+              </div>
+              
+              <div v-if="project.link">
+                <a :href="project.link" :class="[project.isFeatured ? 'btn btn-primary' : 'project-link']" target="_blank">
+                  <i class='bx bx-link-external me-2'></i>{{ project.isFeatured ? 'Visit Website' : project.link.replace('https://', '').replace('/', '') }}
+                </a>
               </div>
             </div>
             
