@@ -66,11 +66,13 @@ const projects = ref([
 
 <template>
   <div class="row gx-5 justify-content-center">
-    <div class="col-lg-11 col-xl-9 col-xxl-8">
+    <div class="col-12 col-xl-11">
       
-      <div v-for="(project, index) in projects" :key="index" :class="['card overflow-hidden shadow border-0 mb-5', project.isFeatured ? 'featured-project' : '']">
-        <div class="card-body p-0">
-          <div class="d-flex flex-column">
+      <div class="row gx-4">
+        <div v-for="(project, index) in projects" :key="index" class="col-md-6 mb-5">
+          <div :class="['card overflow-hidden shadow border-0 h-100', project.isFeatured ? 'featured-project' : '']">
+            <div class="card-body p-0 h-100">
+              <div class="d-flex flex-column h-100">
 
             <!-- Top: Image Slider -->
             <div class="w-100 border-bottom border-secondary border-opacity-25">
@@ -81,8 +83,8 @@ const projects = ref([
                 
                 <div class="carousel-inner">
                   <div v-for="(image, imgIndex) in project.images" :key="'img-'+imgIndex" :class="['carousel-item', { active: imgIndex === 0 }]">
-                    <div class="project-image-view w-100 position-relative">
-                      <img :src="image.src" :alt="image.label" class="img-fluid w-100 object-fit-cover" style="max-height: 400px; min-height: 250px;" />
+                    <div class="project-image-view w-100 position-relative d-flex align-items-center justify-content-center" style="height: 280px;">
+                      <img :src="image.src" :alt="image.label" class="img-fluid w-100 h-100" style="object-fit: contain; padding: 1.5rem;" />
                       <span v-if="project.isFeatured" class="image-label">{{ image.label }}</span>
                       
                       <!-- Overlay for non-featured projects to maintain styling -->
@@ -103,7 +105,7 @@ const projects = ref([
             </div>
 
             <!-- Bottom: Content -->
-            <div class="p-4 p-md-5 d-flex flex-column justify-content-center">
+            <div class="p-4 p-md-4 d-flex flex-column flex-grow-1">
               <span v-if="project.badge" class="badge-new w-auto align-self-start mb-3">{{ project.badge }}</span>
               <h2 class="fw-bolder text-gradient mb-3">{{ project.title }}</h2>
               <p class="project-desc" v-html="project.description"></p>
@@ -116,13 +118,14 @@ const projects = ref([
                 <div v-for="highlight in project.highlights" :key="highlight" class="highlight-item">✓ {{ highlight }}</div>
               </div>
               
-              <div v-if="project.link">
+              <div v-if="project.link" class="mt-auto pt-3">
                 <a :href="project.link" :class="[project.isFeatured ? 'btn btn-primary' : 'project-link']" target="_blank">
                   <i class='bx bx-link-external me-2'></i>{{ project.isFeatured ? 'Visit Website' : project.link.replace('https://', '').replace('/', '') }}
                 </a>
               </div>
             </div>
-            
+              </div>
+            </div>
           </div>
         </div>
       </div>
