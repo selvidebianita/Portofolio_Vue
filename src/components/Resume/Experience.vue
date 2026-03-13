@@ -9,9 +9,9 @@ export default {
           company: "PT Netindo Solution Group",
           location: "Era Solusi Data, Yogyakarta",
           description: [
-            "Building and maintaining responsive web interfaces using Next.js, React, and Tailwind CSS",
-            "Collaborating with the development team to implement UI/UX designs into functional web applications",
-            "Contributing to the digitalization initiatives at Ministry of Manpower (Kemnaker RI)",
+            "Architecting and developing modern, responsive web architectures focusing on high-performance user interfaces.",
+            "Collaborating closely with cross-functional teams to translate UI/UX designs into scalable and interactive web applications.",
+            "Spearheading digitalization initiatives for government projects, including the Ministry of Manpower (Kemnaker RI), ensuring robust front-end delivery.",
           ]
         },
         {
