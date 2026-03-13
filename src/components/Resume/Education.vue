@@ -11,6 +11,7 @@ export default {
         description: [
           "Specialized in Frontend Web Development and Data Analysis, focusing on building user-centric interfaces.",
           "Gained extensive hands-on experience in software engineering, data analysis, and network administration.",
+          "Published a journal article for the final project, accessible on Google Scholar and <a href='https://ejournal.katersipublisher.com/index.php/FIMERKOM/article/download/82/33' target='_blank' style='color:#64FFDA;'>FIMERKOM Journal</a>",
           "Actively contributed as a Lab Assistant for software engineering and programming practical courses.",
         ]
       },
