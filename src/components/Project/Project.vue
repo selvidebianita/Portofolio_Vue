@@ -3,9 +3,25 @@ import { ref } from 'vue';
 
 const projects = ref([
   {
-    title: 'Esoda Company Profile',
+    title: 'ASPI Indonesia Company Profile',
     isFeatured: true,
     badge: 'Latest Project',
+    description: 'Official company profile for Asosiasi Sel Punca Indonesia (ASPI). I developed a comprehensive platform featuring a public portal and a robust administrative dashboard for managing stem cell research content and events using React and Next.js.',
+    techStack: ['Next.js', 'React.js', 'CSS', 'REST API'],
+    highlights: [
+      'Public membership portal and events',
+      'Advanced administrative module',
+      'Fully responsive UI/UX design'
+    ],
+    link: 'https://aspindonesia.co.id/',
+    images: [
+      { src: '/images/project/aspi1.png', label: 'Public View' },
+      { src: '/images/project/aspi2.png', label: 'Admin Dashboard' }
+    ]
+  },
+  {
+    title: 'Esoda Company Profile',
+    isFeatured: false,
     description: 'Company profile website for PT Era Solusi Data (Esoda). As the <strong>sole Frontend Developer</strong>, I implemented the complete UI design, integrated REST APIs, and built a full-featured admin dashboard using React.js and Next.js without any design reference.',
     techStack: ['Next.js', 'React.js', 'Tailwind CSS', 'REST API'],
     highlights: [
